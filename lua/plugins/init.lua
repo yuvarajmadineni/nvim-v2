@@ -92,7 +92,7 @@ return {
   {
     "ThePrimeagen/harpoon",
   },
- -- Then modify the opts arg
+  -- Then modify the opts arg
   {
     "nvim-telescope/telescope.nvim",
     opts = function(_, conf)
@@ -106,5 +106,15 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
+  },
+  {
+    "rmagatti/auto-session",
+    config = function()
+      local auto_session = require "auto-session"
+      auto_session.setup {
+        auto_restore_enabled = false,
+        auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
+      }
+    end,
   },
 }
