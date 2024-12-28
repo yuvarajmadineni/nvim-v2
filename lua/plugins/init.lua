@@ -92,4 +92,19 @@ return {
   {
     "ThePrimeagen/harpoon",
   },
+ -- Then modify the opts arg
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function(_, conf)
+      require("telescope").load_extension "fzf"
+      return conf
+    end,
+  },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+  },
 }
